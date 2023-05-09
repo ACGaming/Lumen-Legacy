@@ -1,5 +1,6 @@
 package ladysnake.lumen.common.entities;
 
+import ladysnake.lumen.common.Lumen;
 import ladysnake.lumen.common.config.LumenConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
@@ -16,13 +17,13 @@ public class EntityEmber extends EntityFirefly {
         this(worldIn);
         this.setPosition(x, y, z);
 
-        this.colorModifier = 0.5F + this.world.rand.nextFloat() * 0.5F;
+        this.colorModifier = 0.5F + Lumen.RANDOM.nextFloat() * 0.5F;
     }
 
     public EntityEmber(World worldIn) {
         super(worldIn);
 
-        this.colorModifier = 0.5F + this.world.rand.nextFloat() * 0.5F;
+        this.colorModifier = 0.5F + Lumen.RANDOM.nextFloat() * 0.5F;
 
         this.isAttractedByLight = false;
         this.despawnOnDaytime = false;

@@ -13,6 +13,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Random;
+
 @Mod(modid = Lumen.MOD_ID, name = Lumen.MOD_NAME, version = Lumen.MOD_VERSION, dependencies = Lumen.DEPENDENCIES, acceptedMinecraftVersions = Lumen.MCVERSION)
 public class Lumen {
     // References
@@ -26,6 +28,8 @@ public class Lumen {
     static final String SERVER_PROXY_CLASS = "ladysnake.lumen.server.proxy.ServerProxy";
 
     public static final Logger LOGGER = LogManager.getLogger("Lumen");
+
+    public static final Random RANDOM = new Random();
 
     @SidedProxy(clientSide = Lumen.CLIENT_PROXY_CLASS, serverSide = Lumen.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;

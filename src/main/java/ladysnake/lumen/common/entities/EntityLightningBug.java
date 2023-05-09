@@ -1,5 +1,6 @@
 package ladysnake.lumen.common.entities;
 
+import ladysnake.lumen.common.Lumen;
 import ladysnake.lumen.common.config.LumenConfig;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -14,7 +15,7 @@ public class EntityLightningBug extends EntityFirefly {
     public EntityLightningBug(World worldIn) {
         super(worldIn);
 
-        this.colorModifier = 0.5F + this.world.rand.nextFloat() * 0.5F;
+        this.colorModifier = 0.5F + Lumen.RANDOM.nextFloat() * 0.5F;
 
         this.despawnOnDaytime = true;
     }

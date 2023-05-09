@@ -46,13 +46,13 @@ public class EntityFirefly extends AbstractLightOrb {
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1.0F);
         this.setHealth(1.0F);
 
-        this.scaleModifier = 0.1F + this.world.rand.nextFloat() * 0.15F;
-        this.colorModifier = 0.25F + this.world.rand.nextFloat() * 0.75F;
+        this.scaleModifier = 0.1F + Lumen.RANDOM.nextFloat() * 0.15F;
+        this.colorModifier = 0.25F + Lumen.RANDOM.nextFloat() * 0.75F;
         this.alpha = 1F;
 
         this.setSize(this.scaleModifier, this.scaleModifier);
         this.canDespawn = true;
-        this.isAttractedByLight = this.world.rand.nextDouble() <= LumenConfig.firefliesAttractedToLightChance;
+        this.isAttractedByLight = Lumen.RANDOM.nextDouble() <= LumenConfig.firefliesAttractedToLightChance;
         this.despawnOnDaytime = true;
     }
 

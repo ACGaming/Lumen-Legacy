@@ -23,7 +23,7 @@ public class EntityFaerie extends EntityWillOWisp implements IGlowingEntity {
     // Properties
     @Override
     public boolean getCanSpawnHere() {
-        return LumenConfig.spawnFaeries;
+        return LumenConfig.faeriesSpawn;
     }
 
     // Behaviour

@@ -23,7 +23,7 @@ public class EntityPsiFirefly extends EntityFirefly {
 
     @Override
     public boolean getCanSpawnHere() {
-        return LumenConfig.spawnPsiFireflies && super.getCanSpawnHere();
+        return LumenConfig.psiFirefliesSpawn && super.getCanSpawnHere();
     }
 
 }

@@ -24,7 +24,7 @@ public class EntityLightningBug extends EntityFirefly {
     @Override
     public boolean getCanSpawnHere() {
         // if night time, superior than sea level and thundering
-        return LumenConfig.spawnLightningBugs && !this.world.isDaytime() && this.world.isThundering() && super.getCanSpawnHere();
+        return LumenConfig.lightningBugsSpawn && !this.world.isDaytime() && this.world.isThundering() && super.getCanSpawnHere();
     }
 
     @Override

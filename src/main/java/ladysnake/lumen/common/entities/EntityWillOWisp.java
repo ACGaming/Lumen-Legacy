@@ -45,7 +45,7 @@ public class EntityWillOWisp extends AbstractLightOrb implements IGlowingEntity 
 
     @Override
     public boolean getCanSpawnHere() {
-        return LumenConfig.spawnWillOWisps && !this.world.isDaytime();
+        return LumenConfig.willOWispsSpawn && !this.world.isDaytime();
     }
 
     @Override

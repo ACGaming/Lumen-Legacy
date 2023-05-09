@@ -81,21 +81,21 @@ public class ModEntities {
 
         // FIREFLIES
         reg.register(createEntry(EntityFirefly::new, "firefly", 64, true)
-                .spawn(EnumCreatureType.AMBIENT, 50, 0, LumenConfig.spawnAmountFireFlies, BiomeDictionary.getBiomes(BiomeDictionary.Type.WET))
-                .spawn(EnumCreatureType.AMBIENT, 50, 0, LumenConfig.spawnAmountFireFlies, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST))
+                .spawn(EnumCreatureType.AMBIENT, LumenConfig.firefliesSpawnWeight, LumenConfig.firefliesMinGroupSize, LumenConfig.firefliesMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.WET))
+                .spawn(EnumCreatureType.AMBIENT, LumenConfig.firefliesSpawnWeight, LumenConfig.firefliesMinGroupSize, LumenConfig.firefliesMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST))
                 .build());
 
         reg.register(createEntry(EntityPsiFirefly::new, "psi_firefly", 64, true)
-                .spawn(EnumCreatureType.CREATURE, 50, 0, LumenConfig.spawnAmountPsiFireflies, BiomeDictionary.getBiomes(BiomeDictionary.Type.MAGICAL))
+                .spawn(EnumCreatureType.CREATURE, LumenConfig.psiFirefliesSpawnWeight, LumenConfig.psiFirefliesMinGroupSize, LumenConfig.psiFirefliesMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.MAGICAL))
                 .build());
 
         reg.register(createEntry(EntityLightningBug::new, "lightning_bug", 64, true)
-                .spawn(EnumCreatureType.AMBIENT, 50, 0, LumenConfig.spawnAmountLightingBugs, BiomeDictionary.getBiomes(BiomeDictionary.Type.WET))
-                .spawn(EnumCreatureType.AMBIENT, 50, 0, LumenConfig.spawnAmountLightingBugs, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST))
+                .spawn(EnumCreatureType.AMBIENT, LumenConfig.lightningBugsSpawnWeight, LumenConfig.lightningBugsMinGroupSize, LumenConfig.lightningBugsMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.WET))
+                .spawn(EnumCreatureType.AMBIENT, LumenConfig.lightningBugsSpawnWeight, LumenConfig.lightningBugsMinGroupSize, LumenConfig.lightningBugsMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST))
                 .build());
 
         reg.register(createEntry(EntityEmber::new, "ember", 64, true)
-                .spawn(EnumCreatureType.AMBIENT, 50, 0, LumenConfig.spawnAmountEmbers, BiomeDictionary.getBiomes(BiomeDictionary.Type.NETHER))
+                .spawn(EnumCreatureType.AMBIENT, LumenConfig.embersSpawnWeight, LumenConfig.embersMinGroupSize, LumenConfig.embersMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.NETHER))
                 .build());
 
         // COMPANION ORBS
@@ -104,14 +104,14 @@ public class ModEntities {
 
         // EXPERIMENTAL
         reg.register(createEntry(EntityWillOWisp::new, "will_o_wisp", 64, true)
-                .spawn(EnumCreatureType.CREATURE, 50, 0, LumenConfig.spawnAmountWilloWisps, BiomeDictionary.getBiomes(BiomeDictionary.Type.SWAMP))
-                .spawn(EnumCreatureType.CREATURE, 50, 0, LumenConfig.spawnAmountWilloWisps, BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY))
-                .spawn(EnumCreatureType.CREATURE, 50, 0, LumenConfig.spawnAmountWilloWisps, BiomeDictionary.getBiomes(BiomeDictionary.Type.DEAD))
+                .spawn(EnumCreatureType.CREATURE, LumenConfig.willOWispsSpawnWeight, LumenConfig.willOWispsMinGroupSize, LumenConfig.willOWispsMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.SWAMP))
+                .spawn(EnumCreatureType.CREATURE, LumenConfig.willOWispsSpawnWeight, LumenConfig.willOWispsMinGroupSize, LumenConfig.willOWispsMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY))
+                .spawn(EnumCreatureType.CREATURE, LumenConfig.willOWispsSpawnWeight, LumenConfig.willOWispsMinGroupSize, LumenConfig.willOWispsMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.DEAD))
                 .build());
 
         reg.register(createEntry(EntityFaerie::new, "faerie", 64, true)
-                .spawn(EnumCreatureType.CREATURE, 50, 0, LumenConfig.spawnAmountFaeries, BiomeDictionary.getBiomes(BiomeDictionary.Type.DENSE))
-                .spawn(EnumCreatureType.CREATURE, 50, 0, LumenConfig.spawnAmountFaeries, BiomeDictionary.getBiomes(BiomeDictionary.Type.MAGICAL))
+                .spawn(EnumCreatureType.CREATURE, LumenConfig.faeriesSpawnWeight, LumenConfig.faeriesMinGroupSize, LumenConfig.faeriesMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.DENSE))
+                .spawn(EnumCreatureType.CREATURE, LumenConfig.faeriesSpawnWeight, LumenConfig.faeriesMinGroupSize, LumenConfig.faeriesMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.MAGICAL))
                 .build());
 
         reg.register(createEntry(EntityRadFlame::new, "rad_flame", 64, true).build());

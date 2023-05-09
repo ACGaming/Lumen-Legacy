@@ -35,7 +35,7 @@ public class EntityEmber extends EntityFirefly {
         int j = MathHelper.floor(this.getEntityBoundingBox().minY);
         int k = MathHelper.floor(this.posZ);
         BlockPos blockpos = new BlockPos(i, j, k);
-        return LumenConfig.spawnEmbers && this.world.getLight(blockpos) > 8 && super.getCanSpawnHere();
+        return LumenConfig.embersSpawn && this.world.getLight(blockpos) > 8 && super.getCanSpawnHere();
     }
 
     @Override

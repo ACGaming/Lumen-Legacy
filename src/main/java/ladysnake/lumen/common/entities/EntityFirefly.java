@@ -127,7 +127,7 @@ public class EntityFirefly extends AbstractLightOrb {
     public boolean getCanSpawnHere() {
         // if night time, superior than sea level and not raining and not in Twilight Forest
         // spawn a number of fireflies between the config values
-        if (this.getClass() == EntityFirefly.class) return LumenConfig.spawnFireflies && !this.world.isDaytime() && !this.world.isRaining() && !(twilightForestInstalled && this.world.provider.getDimension() == twilightForestDimId) && super.getCanSpawnHere();
+        if (this.getClass() == EntityFirefly.class) return LumenConfig.firefliesSpawn && !this.world.isDaytime() && !this.world.isRaining() && !(twilightForestInstalled && this.world.provider.getDimension() == twilightForestDimId) && super.getCanSpawnHere();
         else return super.getCanSpawnHere();
     }
 

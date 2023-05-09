@@ -23,7 +23,7 @@ public class EntityRadFlame extends EntityWillOWisp implements IGlowingEntity {
     // Properties
     @Override
     public boolean getCanSpawnHere() {
-        return LumenConfig.spawnWillOWisps;
+        return LumenConfig.willOWispsSpawn;
     }
 
     // Behaviour

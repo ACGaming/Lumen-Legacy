@@ -13,53 +13,83 @@ public class LumenConfig {
 
     // Spawns
     @Config.Comment("Enable firefly spawn")
-    public static boolean spawnFireflies = true;
+    public static boolean firefliesSpawn = true;
 
     @Config.Comment("Enable psi firefly spawn")
-    public static boolean spawnPsiFireflies = true;
+    public static boolean psiFirefliesSpawn = true;
 
     @Config.Comment("Enable lightning bug spawn")
-    public static boolean spawnLightningBugs = true;
+    public static boolean lightningBugsSpawn = true;
 
     @Config.Comment("Enable ember spawn")
-    public static boolean spawnEmbers = true;
+    public static boolean embersSpawn = true;
 
     @Config.Comment("Enable will o' wisp spawn")
-    public static boolean spawnWillOWisps = true;
+    public static boolean willOWispsSpawn = true;
 
     @Config.Comment("Enable faerie spawn")
-    public static boolean spawnFaeries = true;
+    public static boolean faeriesSpawn = true;
 
     //Spawn Amounts
-    @Config.Comment("Fireflies spawn amount")
+    @Config.Comment("Fireflies spawn weight")
     @Config.RequiresMcRestart()
-    @Config.RangeInt(max = 300, min = 5)
-    public static int spawnAmountFireFlies = 40;
+    public static int firefliesSpawnWeight = 50;
+    @Config.Comment("Fireflies min group size")
+    @Config.RequiresMcRestart()
+    public static int firefliesMinGroupSize = 1;
+    @Config.Comment("Fireflies max group size")
+    @Config.RequiresMcRestart()
+    public static int firefliesMaxGroupSize = 40;
 
-    @Config.Comment("Psi Fireflies spawn amount")
+    @Config.Comment("Psi Fireflies spawn weight")
     @Config.RequiresMcRestart()
-    @Config.RangeInt(max = 300, min = 5)
-    public static int spawnAmountPsiFireflies = 40;
+    public static int psiFirefliesSpawnWeight = 50;
+    @Config.Comment("Psi Fireflies min group size")
+    @Config.RequiresMcRestart()
+    public static int psiFirefliesMinGroupSize = 1;
+    @Config.Comment("Psi Fireflies max group size")
+    @Config.RequiresMcRestart()
+    public static int psiFirefliesMaxGroupSize = 40;
 
-    @Config.Comment("Lighting Bugs spawn amount")
+    @Config.Comment("Lightning Bugs spawn weight")
     @Config.RequiresMcRestart()
-    @Config.RangeInt(max = 300, min = 5)
-    public static int spawnAmountLightingBugs = 40;
+    public static int lightningBugsSpawnWeight = 50;
+    @Config.Comment("Lightning Bugs min group size")
+    @Config.RequiresMcRestart()
+    public static int lightningBugsMinGroupSize = 1;
+    @Config.Comment("Lightning Bugs max group size")
+    @Config.RequiresMcRestart()
+    public static int lightningBugsMaxGroupSize = 40;
 
-    @Config.Comment("Embers spawn amount")
+    @Config.Comment("Embers spawn weight")
     @Config.RequiresMcRestart()
-    @Config.RangeInt(max = 300, min = 5)
-    public static int spawnAmountEmbers = 40;
+    public static int embersSpawnWeight = 50;
+    @Config.Comment("Embers min group size")
+    @Config.RequiresMcRestart()
+    public static int embersMinGroupSize = 1;
+    @Config.Comment("Embers max group size")
+    @Config.RequiresMcRestart()
+    public static int embersMaxGroupSize = 40;
 
-    @Config.Comment("Will o' Wisps spawn amount")
+    @Config.Comment("Will o' Wisps spawn weight")
     @Config.RequiresMcRestart()
-    @Config.RangeInt(max = 300, min = 5)
-    public static int spawnAmountWilloWisps = 40;
+    public static int willOWispsSpawnWeight = 50;
+    @Config.Comment("Will o' Wisps min group size")
+    @Config.RequiresMcRestart()
+    public static int willOWispsMinGroupSize = 1;
+    @Config.Comment("Will o' Wisps max group size")
+    @Config.RequiresMcRestart()
+    public static int willOWispsMaxGroupSize = 40;
 
-    @Config.Comment("Faeries spawn amount")
+    @Config.Comment("Faeries spawn weight")
     @Config.RequiresMcRestart()
-    @Config.RangeInt(max = 300, min = 5)
-    public static int spawnAmountFaeries = 40;
+    public static int faeriesSpawnWeight = 50;
+    @Config.Comment("Faeries min group size")
+    @Config.RequiresMcRestart()
+    public static int faeriesMinGroupSize = 1;
+    @Config.Comment("Faeries max group size")
+    @Config.RequiresMcRestart()
+    public static int faeriesMaxGroupSize = 40;
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {

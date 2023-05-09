@@ -56,7 +56,7 @@ jar {
 
 version = "${mod_version}"
 group = "ladysnake.lumen" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "lumen"
+archivesBaseName = "Lumen"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {

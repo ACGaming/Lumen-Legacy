@@ -4,8 +4,6 @@ import ladysnake.lumen.common.config.LumenConfig;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public class EntityLightningBug extends EntityFirefly {
 
     public EntityLightningBug(World worldIn, double x, double y, double z) {
@@ -16,7 +14,7 @@ public class EntityLightningBug extends EntityFirefly {
     public EntityLightningBug(World worldIn) {
         super(worldIn);
 
-        this.colorModifier = 0.5F + new Random().nextFloat() * 0.5F;
+        this.colorModifier = 0.5F + this.world.rand.nextFloat() * 0.5F;
 
         this.despawnOnDaytime = true;
     }

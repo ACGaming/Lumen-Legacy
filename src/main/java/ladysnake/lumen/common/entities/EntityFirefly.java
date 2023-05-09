@@ -1,5 +1,6 @@
 package ladysnake.lumen.common.entities;
 
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import ladysnake.lumen.common.Lumen;
 import ladysnake.lumen.common.config.LumenConfig;
 import net.minecraft.entity.MoverType;
@@ -12,9 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Loader;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class EntityFirefly extends AbstractLightOrb {
     
@@ -47,13 +46,13 @@ public class EntityFirefly extends AbstractLightOrb {
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1.0F);
         this.setHealth(1.0F);
 
-        this.scaleModifier = 0.1F + new Random().nextFloat() * 0.15F;
-        this.colorModifier = 0.25F + new Random().nextFloat() * 0.75F;
+        this.scaleModifier = 0.1F + this.world.rand.nextFloat() * 0.15F;
+        this.colorModifier = 0.25F + this.world.rand.nextFloat() * 0.75F;
         this.alpha = 1F;
 
         this.setSize(this.scaleModifier, this.scaleModifier);
         this.canDespawn = true;
-        this.isAttractedByLight = true;
+        this.isAttractedByLight = this.world.rand.nextDouble() <= LumenConfig.firefliesAttractedToLightChance;
         this.despawnOnDaytime = true;
     }
 
@@ -143,7 +142,7 @@ public class EntityFirefly extends AbstractLightOrb {
     public void onUpdate() {
         super.onUpdate();
 
-        if (this.despawnOnDaytime && this.canDespawn && this.alpha <= 0) this.setDead();
+        if (this.despawnOnDaytime && this.canDespawn && this.alpha <= 0 && (!twilightForestInstalled || this.world.provider.getDimension() != twilightForestDimId)) this.setDead();
 
         if (!this.world.isRemote && !this.isDead) {
             this.targetChangeCooldown -= (this.getPositionVector().squareDistanceTo(lastTickPosX, lastTickPosY, lastTickPosZ) < 0.0125) ? 10 : 1;
@@ -218,7 +217,7 @@ public class EntityFirefly extends AbstractLightOrb {
     }
 
     private BlockPos getRandomLitBlockAround() {
-        HashMap<BlockPos, Integer> randBlocks = new HashMap<>();
+        Object2IntOpenHashMap<BlockPos> randBlocks = new Object2IntOpenHashMap<>();
         for (int i = 0; i < 15; i++) {
             BlockPos randBP = new BlockPos(this.posX + rand.nextGaussian() * 10, this.posY + rand.nextGaussian() * 10, this.posZ + rand.nextGaussian() * 10);
             randBlocks.put(randBP, this.world.getLight(randBP, true));

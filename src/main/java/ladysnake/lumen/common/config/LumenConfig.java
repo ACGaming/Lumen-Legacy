@@ -91,6 +91,11 @@ public class LumenConfig {
     @Config.RequiresMcRestart()
     public static int faeriesMaxGroupSize = 40;
 
+    // Entity Features
+    @Config.Comment("Fireflies attracted to light chance")
+    @Config.RangeDouble(min = 0.0D, max = 1.0D)
+    public static double firefliesAttractedToLightChance = 1.0D;
+
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
         if (event.getModID().equals(Lumen.MOD_ID)) {

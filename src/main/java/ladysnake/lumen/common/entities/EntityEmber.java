@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 import java.util.List;
-import java.util.Random;
 
 public class EntityEmber extends EntityFirefly {
 
@@ -17,13 +16,13 @@ public class EntityEmber extends EntityFirefly {
         this(worldIn);
         this.setPosition(x, y, z);
 
-        this.colorModifier = 0.5F + new Random().nextFloat() * 0.5F;
+        this.colorModifier = 0.5F + this.world.rand.nextFloat() * 0.5F;
     }
 
     public EntityEmber(World worldIn) {
         super(worldIn);
 
-        this.colorModifier = 0.5F + new Random().nextFloat() * 0.5F;
+        this.colorModifier = 0.5F + this.world.rand.nextFloat() * 0.5F;
 
         this.isAttractedByLight = false;
         this.despawnOnDaytime = false;

@@ -80,42 +80,74 @@ public class ModEntities {
         IForgeRegistry<EntityEntry> reg = event.getRegistry();
 
         // FIREFLIES
-        reg.register(createEntry(EntityFirefly::new, "firefly", 64, true)
+        if (LumenConfig.firefliesSpawn) {
+            reg.register(createEntry(EntityFirefly::new, "firefly", 64, true)
                 .spawn(EnumCreatureType.AMBIENT, LumenConfig.firefliesSpawnWeight, LumenConfig.firefliesMinGroupSize, LumenConfig.firefliesMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.WET))
                 .spawn(EnumCreatureType.AMBIENT, LumenConfig.firefliesSpawnWeight, LumenConfig.firefliesMinGroupSize, LumenConfig.firefliesMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST))
                 .build());
+        } else {
+            reg.register(createEntry(EntityFirefly::new, "firefly", 64, true)
+                .build());
+        }
 
+        if (LumenConfig.psiFirefliesSpawn) {
         reg.register(createEntry(EntityPsiFirefly::new, "psi_firefly", 64, true)
                 .spawn(EnumCreatureType.CREATURE, LumenConfig.psiFirefliesSpawnWeight, LumenConfig.psiFirefliesMinGroupSize, LumenConfig.psiFirefliesMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.MAGICAL))
                 .build());
+        } else {
+            reg.register(createEntry(EntityPsiFirefly::new, "psi_firefly", 64, true)
+                .build());
+        }
 
-        reg.register(createEntry(EntityLightningBug::new, "lightning_bug", 64, true)
+        if (LumenConfig.lightningBugsSpawn) {
+            reg.register(createEntry(EntityLightningBug::new, "lightning_bug", 64, true)
                 .spawn(EnumCreatureType.AMBIENT, LumenConfig.lightningBugsSpawnWeight, LumenConfig.lightningBugsMinGroupSize, LumenConfig.lightningBugsMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.WET))
                 .spawn(EnumCreatureType.AMBIENT, LumenConfig.lightningBugsSpawnWeight, LumenConfig.lightningBugsMinGroupSize, LumenConfig.lightningBugsMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST))
                 .build());
+        } else {
+            reg.register(createEntry(EntityLightningBug::new, "lightning_bug", 64, true)
+                .build());
+        }
 
-        reg.register(createEntry(EntityEmber::new, "ember", 64, true)
+        if (LumenConfig.embersSpawn) {
+            reg.register(createEntry(EntityEmber::new, "ember", 64, true)
                 .spawn(EnumCreatureType.AMBIENT, LumenConfig.embersSpawnWeight, LumenConfig.embersMinGroupSize, LumenConfig.embersMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.NETHER))
                 .build());
+        } else {
+            reg.register(createEntry(EntityEmber::new, "ember", 64, true)
+                .build());
+        }
 
         // COMPANION ORBS
-        reg.register(createEntry(EntityCompanionOrb::new, "companion_orb", 64, true).build());
-        reg.register(createEntry(EntityCompanionOrbAnimated::new, "companion_orb_a", 64, true).build());
+        reg.register(createEntry(EntityCompanionOrb::new, "companion_orb", 64, true)
+                .build());
+        reg.register(createEntry(EntityCompanionOrbAnimated::new, "companion_orb_a", 64, true)
+                .build());
 
         // EXPERIMENTAL
-        reg.register(createEntry(EntityWillOWisp::new, "will_o_wisp", 64, true)
+        if (LumenConfig.willOWispsSpawn) {
+            reg.register(createEntry(EntityWillOWisp::new, "will_o_wisp", 64, true)
                 .spawn(EnumCreatureType.CREATURE, LumenConfig.willOWispsSpawnWeight, LumenConfig.willOWispsMinGroupSize, LumenConfig.willOWispsMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.SWAMP))
                 .spawn(EnumCreatureType.CREATURE, LumenConfig.willOWispsSpawnWeight, LumenConfig.willOWispsMinGroupSize, LumenConfig.willOWispsMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.SPOOKY))
                 .spawn(EnumCreatureType.CREATURE, LumenConfig.willOWispsSpawnWeight, LumenConfig.willOWispsMinGroupSize, LumenConfig.willOWispsMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.DEAD))
                 .build());
+        } else {
+            reg.register(createEntry(EntityWillOWisp::new, "will_o_wisp", 64, true)
+                .build());
+        }
 
+        if (LumenConfig.faeriesSpawn) {
         reg.register(createEntry(EntityFaerie::new, "faerie", 64, true)
                 .spawn(EnumCreatureType.CREATURE, LumenConfig.faeriesSpawnWeight, LumenConfig.faeriesMinGroupSize, LumenConfig.faeriesMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.DENSE))
                 .spawn(EnumCreatureType.CREATURE, LumenConfig.faeriesSpawnWeight, LumenConfig.faeriesMinGroupSize, LumenConfig.faeriesMaxGroupSize, BiomeDictionary.getBiomes(BiomeDictionary.Type.MAGICAL))
                 .build());
+        } else {
+            reg.register(createEntry(EntityFaerie::new, "faerie", 64, true)
+                .build());
+        }
 
-        reg.register(createEntry(EntityRadFlame::new, "rad_flame", 64, true).build());
-
+        reg.register(createEntry(EntityRadFlame::new, "rad_flame", 64, true)
+                .build());
     }
 
     private static EntityEntryBuilder<Entity> createEntry(Function<World, Entity> entityFactory,

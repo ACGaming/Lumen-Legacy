@@ -43,7 +43,7 @@ public class RenderFirefly<T extends Entity> extends Render<T> {
                 float alpha = ((EntityFirefly) entity).getAlpha();
 
                 // if is day and firefly sees the sky, fade out, else fade in
-                if (!isNightTime && entity.world.canSeeSky(entity.getPosition()))
+                if (!isNightTime && entity.world.canSeeSky(entity.getPosition()) && (!Lumen.twilightForestInstalled || entity.world.provider.getDimension() != Lumen.twilightForestDimId))
                     alpha -= 0.01;
                 else alpha += 0.01;
                 float scale = ((EntityFirefly) entity).getScaleModifier();
@@ -60,20 +60,20 @@ public class RenderFirefly<T extends Entity> extends Render<T> {
             float maxU = 1;
             float maxV = 1;
             bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);
-            bufferbuilder.pos(-0.5D, -0.25D, 0.0D).tex((double) maxU, (double) maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
-            bufferbuilder.pos(0.5D, -0.25D, 0.0D).tex((double) minU, (double) maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
-            bufferbuilder.pos(0.5D, 0.75D, 0.0D).tex((double) minU, (double) minV).normal(0.0F, 1.0F, 0.0F).endVertex();
-            bufferbuilder.pos(-0.5D, 0.75D, 0.0D).tex((double) maxU, (double) minV).normal(0.0F, 1.0F, 0.0F).endVertex();
+            bufferbuilder.pos(-0.5D, -0.25D, 0.0D).tex(maxU, maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
+            bufferbuilder.pos(0.5D, -0.25D, 0.0D).tex(minU, maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
+            bufferbuilder.pos(0.5D, 0.75D, 0.0D).tex(minU, minV).normal(0.0F, 1.0F, 0.0F).endVertex();
+            bufferbuilder.pos(-0.5D, 0.75D, 0.0D).tex(maxU, minV).normal(0.0F, 1.0F, 0.0F).endVertex();
             tessellator.draw();
 
             this.bindTexture(new ResourceLocation(Lumen.MOD_ID, "textures/entities/firefly_overlay.png"));
             //noinspection ConstantConditions
             GlStateManager.color(1F, 1F, 1F, ((EntityFirefly) entity).getAlpha());
             bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX_NORMAL);
-            bufferbuilder.pos(-0.5D, -0.25D, 0.0D).tex((double) maxU, (double) maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
-            bufferbuilder.pos(0.5D, -0.25D, 0.0D).tex((double) minU, (double) maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
-            bufferbuilder.pos(0.5D, 0.75D, 0.0D).tex((double) minU, (double) minV).normal(0.0F, 1.0F, 0.0F).endVertex();
-            bufferbuilder.pos(-0.5D, 0.75D, 0.0D).tex((double) maxU, (double) minV).normal(0.0F, 1.0F, 0.0F).endVertex();
+            bufferbuilder.pos(-0.5D, -0.25D, 0.0D).tex(maxU, maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
+            bufferbuilder.pos(0.5D, -0.25D, 0.0D).tex(minU, maxV).normal(0.0F, 1.0F, 0.0F).endVertex();
+            bufferbuilder.pos(0.5D, 0.75D, 0.0D).tex(minU, minV).normal(0.0F, 1.0F, 0.0F).endVertex();
+            bufferbuilder.pos(-0.5D, 0.75D, 0.0D).tex(maxU, minV).normal(0.0F, 1.0F, 0.0F).endVertex();
             tessellator.draw();
 
             GlStateManager.disableAlpha();

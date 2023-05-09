@@ -5,13 +5,16 @@ import ladylib.LadyLib;
 import ladysnake.lumen.common.init.CommonProxy;
 import ladysnake.lumen.common.init.ModItems;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import twilightforest.TFConfig;
 
 import java.util.Random;
 
@@ -22,7 +25,7 @@ public class Lumen {
     public static final String MOD_NAME = "Lumen";
     static final String MOD_VERSION = "0.4.4";
     static final String MCVERSION = "[1.12]";
-    static final String DEPENDENCIES = "required-after:ladylib;";
+    static final String DEPENDENCIES = "required-after:ladylib;after:twilightforest";
 
     static final String CLIENT_PROXY_CLASS = "ladysnake.lumen.client.proxy.ClientProxy";
     static final String SERVER_PROXY_CLASS = "ladysnake.lumen.server.proxy.ServerProxy";
@@ -30,6 +33,9 @@ public class Lumen {
     public static final Logger LOGGER = LogManager.getLogger("Lumen");
 
     public static final Random RANDOM = new Random();
+
+    public static boolean twilightForestInstalled;
+    public static int twilightForestDimId;
 
     @SidedProxy(clientSide = Lumen.CLIENT_PROXY_CLASS, serverSide = Lumen.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
@@ -44,8 +50,10 @@ public class Lumen {
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event) {
-        // some example code
+    public void postInit(FMLPostInitializationEvent event) {
+        if (Loader.isModLoaded("twilightforest")) {
+            twilightForestInstalled = true;
+            twilightForestDimId = TFConfig.dimension.dimensionID;
+        }
     }
-
 }

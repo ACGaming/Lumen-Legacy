@@ -17,21 +17,6 @@ import java.util.Map;
 
 public class EntityFirefly extends AbstractLightOrb {
     
-    private static boolean twilightForestInstalled;
-    private static int twilightForestDimId;
-    
-    static {
-        try {            
-            if (Loader.isModLoaded("twilightforest")) {
-                Class<?> tfConfigClass = Class.forName("twilightforest.TFConfig");
-                twilightForestDimId = (Integer) tfConfigClass.getField("dimensionID").get(null);
-                twilightForestInstalled = true;
-            }
-        } catch (Exception e) {
-            Lumen.LOGGER.warn("Can't find twilight forest config despite mod being installed", e);
-        }
-    }
-    
     // Attributes
     private float scaleModifier;
     float colorModifier;
@@ -126,7 +111,7 @@ public class EntityFirefly extends AbstractLightOrb {
     public boolean getCanSpawnHere() {
         // if night time, superior than sea level and not raining and not in Twilight Forest
         // spawn a number of fireflies between the config values
-        if (this.getClass() == EntityFirefly.class) return LumenConfig.firefliesSpawn && !this.world.isDaytime() && !this.world.isRaining() && !(twilightForestInstalled && this.world.provider.getDimension() == twilightForestDimId) && super.getCanSpawnHere();
+        if (this.getClass() == EntityFirefly.class) return LumenConfig.firefliesSpawn && !this.world.isDaytime() && !this.world.isRaining() && !(Lumen.twilightForestInstalled && this.world.provider.getDimension() == Lumen.twilightForestDimId) && super.getCanSpawnHere();
         else return super.getCanSpawnHere();
     }
 
@@ -142,7 +127,7 @@ public class EntityFirefly extends AbstractLightOrb {
     public void onUpdate() {
         super.onUpdate();
 
-        if (this.despawnOnDaytime && this.canDespawn && this.alpha <= 0 && (!twilightForestInstalled || this.world.provider.getDimension() != twilightForestDimId)) this.setDead();
+        if (this.despawnOnDaytime && this.canDespawn && this.alpha <= 0 && (!Lumen.twilightForestInstalled || this.world.provider.getDimension() != Lumen.twilightForestDimId)) this.setDead();
 
         if (!this.world.isRemote && !this.isDead) {
             this.targetChangeCooldown -= (this.getPositionVector().squareDistanceTo(lastTickPosX, lastTickPosY, lastTickPosZ) < 0.0125) ? 10 : 1;

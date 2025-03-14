@@ -1,10 +1,9 @@
 buildscript {
     repositories {
-        jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven { url = "https://maven.minecraftforge.net" }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'com.anatawa12.forge:ForgeGradle:2.3-1.0.8'
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
@@ -12,14 +11,13 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 allprojects {
     repositories {
-        maven { url 'https://jitpack.io' }
+        maven {
+            name = "JitPack"
+            url = "https://jitpack.io"
+        }
         maven {
             name = "CurseForge"
             url = "https://minecraft.curseforge.com/api/maven"
-        }
-        maven {
-            name = "DragonForge"
-            url = "https://raw.github.com/dragon-forge/maven/master"
         }
         maven {
             name = "Curse Maven"
@@ -36,8 +34,8 @@ configurations {
 dependencies {
     deobfCompile "com.github.Ladysnake:Ladylib:${ladylib_version}"
     contained "com.github.Ladysnake:Ladylib:${ladylib_version}"
-    deobfCompile "tk.zeitheron.HammerLib:HammerLib-1.12.2:2.0.6.14:deobf"
-    deobfCompile "tk.zeitheron.ColoredLux:ColoredLux-1.12.2:12r:deobf"
+    deobfCompile "curse.maven:hammer-lib-247401:5655181"
+    deobfCompile "curse.maven:colored-lux-347912:4808132"
     deobfCompile "curse.maven:the-twilight-forest-227639:3051450"
 }
 

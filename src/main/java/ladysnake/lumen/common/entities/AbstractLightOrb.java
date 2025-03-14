@@ -5,6 +5,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -64,4 +66,13 @@ public abstract class AbstractLightOrb extends EntityCreature {
 //        return new SimpleCheapLight(this.getPositionVector(), radius, new Color(r, g, b, a));
     }
 
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource damageSource) {
+        return null;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return null;
+    }
 }

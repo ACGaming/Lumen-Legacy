@@ -39,11 +39,11 @@ public class RenderFirefly<T extends Entity> extends Render<T> {
 
             this.bindEntityTexture(entity);
             if (entity instanceof EntityFirefly) {
-                boolean isNightTime = (entity.world.getWorldTime()%24000) >= 13000 && (entity.world.getWorldTime()%24000) < 23000;
+                boolean isSunny = entity.world.getSunBrightnessFactor(1.0F) == 1.0F;
                 float alpha = ((EntityFirefly) entity).getAlpha();
 
                 // if is day and firefly sees the sky, fade out, else fade in
-                if (!isNightTime && entity.world.canSeeSky(entity.getPosition()) && (!Lumen.twilightForestInstalled || entity.world.provider.getDimension() != Lumen.twilightForestDimId))
+                if (isSunny && entity.world.canSeeSky(entity.getPosition()) && (!Lumen.twilightForestInstalled || entity.world.provider.getDimension() != Lumen.twilightForestDimId))
                     alpha -= 0.01;
                 else alpha += 0.01;
                 float scale = ((EntityFirefly) entity).getScaleModifier();

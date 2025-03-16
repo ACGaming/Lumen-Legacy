@@ -27,7 +27,6 @@ public class RenderLightningBug<T extends Entity> extends Render<T> {
 
             GlStateManager.translate((float) x, (float) y + 0.1f, (float) z);
 
-            GlStateManager.enableAlpha();
             GlStateManager.enableBlend();
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
             GlStateManager.disableLighting();
@@ -76,9 +75,7 @@ public class RenderLightningBug<T extends Entity> extends Render<T> {
             bufferbuilder.pos(-0.5D, 0.75D, 0.0D).tex((double) maxU, (double) minV).normal(0.0F, 1.0F, 0.0F).endVertex();
             tessellator.draw();
 
-            GlStateManager.disableAlpha();
             GlStateManager.disableBlend();
-            GlStateManager.disableRescaleNormal();
             GlStateManager.enableLighting();
             GlStateManager.popMatrix();
             super.doRender(entity, x, y, z, entityYaw, partialTicks);
